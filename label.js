@@ -70,6 +70,7 @@ async function createLabels(options) {
     console.log('Creating VeracodeFlaw labels');
 
     var authToken = 'token ' + githubToken;
+    console.log("TEKNO!")
 
     for(const element of flawLabels.concat(otherLabels) ) {
         await request('POST /repos/{owner}/{repo}/labels', {
