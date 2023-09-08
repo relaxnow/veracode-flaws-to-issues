@@ -28,6 +28,11 @@ async function importFlaws(options) {
     var internal_flaw_count = 0
     var flawData;
 
+    // test auth
+    var authToken = 'token ' + githubToken;
+    const rootResponse = await request("GET /", {headers:["Authorization: token ${authToken}"]});
+    console.log(rootResponse);
+
     // basic sanity checking
     if(resultsFile === undefined || resultsFile === null)
         throw new Error('missing results file')
