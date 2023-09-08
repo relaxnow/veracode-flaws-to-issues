@@ -4,6 +4,7 @@
 
 const core = require('@actions/core');
 const github = require('@actions/github');
+const { request } = require('@octokit/request');
 
 const importFlaws = require('./importer').importFlaws;
 
@@ -55,6 +56,10 @@ try {
     core.info("We don't run on a PR")
    }
 
+   // test auth
+   var authToken = 'token ' + githubToken;
+   const rootResponse = await request("GET /");
+   console.log(rootResponse);
 
     // do the thing
     importFlaws(
